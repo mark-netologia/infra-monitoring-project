@@ -1,0 +1,12 @@
+#Logs
+*.log
+
+#Temporary
+*.tmp
+*.temp
+*.swp
+
+#Build
+
+build/
+dist/
