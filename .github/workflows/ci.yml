@@ -1,0 +1,22 @@
+name: Bash CI
+
+on:
+  pull_reqest:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checout@v4
+
+      - name: Ckeck Bash syntax
+        run: |
+          bash -n check_api.sh
+          bash -n analyze_log.sh
+
+      - name: Test API monitoring
+        run:
+          bash check_api.sh https://httpbin.org/status/200
